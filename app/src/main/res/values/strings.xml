@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Лечимся с умом!</string>
+    <string name="no_results_found">Пусто :(</string>
+    <string name="drug">Лекарство</string>
+    <string name="substance">Вещество</string>
+    <string name="searchTextHint">Искать здесь</string>
+    <string name="searchTitle">Лечимся с умом</string>
+    <string name="searchSubTitle">Выбирайте выгодные аналоги по названию лекарства или действующего вещества</string>
+    <string name="AnalogsTitle">Действующее вещество:</string>
+    <string name="no_choice">[Не выбрано]</string>
+</resources>

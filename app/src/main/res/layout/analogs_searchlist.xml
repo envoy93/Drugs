@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/marginNormal"
+              android:background="@color/itemBG"
+              android:orientation="vertical"
+              android:padding="@dimen/marginNormal">
+
+    <TextView
+        android:id="@+id/analogName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|start|top"
+        android:text=""
+        android:textColor="@color/itemTitle"
+        android:textSize="@dimen/textTitle"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/analogPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start|top"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="@color/price"
+            android:textSize="@dimen/textBig"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start|top"
+            android:text="/"
+            android:textColor="@color/itemTitle"
+            android:textStyle="bold"
+            android:textSize="@dimen/textCaption"/>
+
+        <TextView
+            android:id="@+id/analogCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start|top"
+            android:text=""
+            android:textColor="@color/itemTitle"
+            android:textStyle="bold"
+            android:textSize="@dimen/textCaption"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/analogForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|start|top"
+        android:maxLines="10"
+        android:minLines="1"
+        android:text=""
+        android:textColor="@color/itemSubTitle"
+        android:textSize="@dimen/textCaption"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="@dimen/marginSmall"
+        android:background="@color/searchItemDivider"/>
+
+    <TextView
+        android:id="@+id/analogCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|start|top"
+        android:text=""
+        android:textColor="@color/itemSubTitle"
+        android:textSize="@dimen/textCaption"/>
+
+</LinearLayout>
