@@ -3,23 +3,20 @@ package com.shashov.drugs.features.drugs.presentation.views
 import android.arch.lifecycle.LifecycleFragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
-import com.shashov.drugs.features.drugs.data.local.Drugs
-import kotlinx.android.synthetic.main.fragment_analogs.*
-import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.shashov.drugs.R
-import com.shashov.drugs.features.drugs.data.local.Drug
+import com.shashov.drugs.features.drugs.data.local.Drugs
 import com.shashov.drugs.features.drugs.presentation.AnalogsViewModel
 import com.shashov.drugs.features.drugs.presentation.adapters.AnalogsListAdapter
-import com.shashov.drugs.features.drugs.presentation.adapters.SearchListAdapter
 import com.shashov.drugs.features.drugs.presentation.hide
 import com.shashov.drugs.features.drugs.presentation.show
+import kotlinx.android.synthetic.main.fragment_analogs.*
 
 
 class AnalogsFragment : LifecycleFragment() {
@@ -35,6 +32,7 @@ class AnalogsFragment : LifecycleFragment() {
 
         analogsViewModel = ViewModelProviders.of(activity).get(AnalogsViewModel::class.java)
         list.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
+        list?.isNestedScrollingEnabled = false
 
         analogsViewModel.getSubstance().observe(this, Observer<String> { substance ->
             substanceName.text =
@@ -57,7 +55,8 @@ class AnalogsFragment : LifecycleFragment() {
                 list.adapter.notifyDataSetChanged()
             }
             if (analogsViewModel.getScrollToTop().value!!) {
-                list.scrollToPosition(0)
+                analogsCoordinator?.scrollTo(0, 0)
+                analogsCoordinator?.fullScroll(View.FOCUS_UP)
             }
             analogsViewModel.changeScrollToTop(false)
         })

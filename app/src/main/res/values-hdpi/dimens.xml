@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="marginSmall">3.8dp</dimen>
+    <dimen name="marginNormal">7.5dp</dimen>
+    <dimen name="marginBig">15dp</dimen>
+    <dimen name="marginLarge">11.2dp</dimen>
+    <dimen name="marginIcon">37.5dp</dimen>
+    <dimen name="textSmall">11.1sp</dimen>
+    <dimen name="textSuperBig">15sp</dimen>
+    <dimen name="textBase">11.8sp</dimen>
+    <dimen name="textLarge">12.6sp</dimen>
+    <dimen name="textBig">14.2sp</dimen>
+</resources>

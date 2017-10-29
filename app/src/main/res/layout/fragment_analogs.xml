@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/analogsCoordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/analogsBG"
     android:scrollbars="vertical">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="0dp"
-        android:background="@null">
+        android:background="@null"
+        app:elevation="0dp">
 
         <LinearLayout
+            android:id="@+id/analogsHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_marginBottom="@dimen/marginNormal"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/marginNormal"
-            app:layout_scrollFlags="enterAlways">
+            android:padding="@dimen/marginNormal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,29 +45,28 @@
                 android:textSize="@dimen/textTitle"
                 android:textStyle="bold"/>
         </LinearLayout>
-    </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:paddingStart="@dimen/marginNormal"
-        android:paddingEnd="@dimen/marginNormal"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/list"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical"/>
+            android:layout_below="@id/analogsHeader"
+            android:paddingEnd="@dimen/marginNormal"
+            android:paddingStart="@dimen/marginNormal">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Base.Widget.AppCompat.ProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:visibility="visible"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
 
-    </FrameLayout>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Base.Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="visible"/>
 
-</android.support.design.widget.CoordinatorLayout>
+        </FrameLayout>
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

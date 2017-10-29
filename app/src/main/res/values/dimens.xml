@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <dimen name="textTitle">@dimen/textLarge</dimen>
-    <dimen name="textCaption">@dimen/textSmall</dimen>
-
-    <dimen name="marginIcon">50dp</dimen>
-    <dimen name="marginBig">20dp</dimen>
-    <dimen name="marginLarge">15dp</dimen>
-    <dimen name="marginNormal">10dp</dimen>
-    <dimen name="marginSmall">5dp</dimen>
-
-    <dimen name="textSmall">15sp</dimen>
-    <dimen name="textBase">16sp</dimen>
-    <dimen name="textLarge">18sp</dimen>
-    <dimen name="textBig">22sp</dimen>
-    <dimen name="textSuperBig">25sp</dimen>
-
+	<dimen name="textTitle">@dimen/textLarge</dimen>
+	<dimen name="textCaption">@dimen/textSmall</dimen>
+	<dimen name="marginIcon">32.5dp</dimen>
+	<dimen name="marginBig">13dp</dimen>
+	<dimen name="marginLarge">9.8dp</dimen>
+	<dimen name="marginNormal">6.5dp</dimen>
+	<dimen name="marginSmall">3.2dp</dimen>
+	<dimen name="textSmall">9.6sp</dimen>
+	<dimen name="textBase">10.3sp</dimen>
+	<dimen name="textLarge">10.9sp</dimen>
+	<dimen name="textBig">12.3sp</dimen>
+	<dimen name="textSuperBig">13sp</dimen>
 </resources>

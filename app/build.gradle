@@ -88,5 +88,7 @@ dependencies {
 
     compile 'com.github.Cielsk:clearable-edittext:0.0.3'
     compile 'com.github.ivbaranov:materiallettericon:0.2.2'
+
+    compile 'com.google.android.gms:play-services-ads:11.4.2'
     //compile 'com.github.humazed:room-asset:+'
 }

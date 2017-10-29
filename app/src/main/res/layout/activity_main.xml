@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true">
+
+
+    <fragment
+        android:id="@+id/searchPanel"
+        android:name="com.shashov.drugs.features.drugs.presentation.views.SearchFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <RelativeLayout
+        android:id="@+id/analogsLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <fragment
-            android:id="@+id/searchPanel"
-            android:name="com.shashov.drugs.features.drugs.presentation.views.SearchFragment"
+            android:id="@+id/analogsPanel"
+            android:name="com.shashov.drugs.features.drugs.presentation.views.AnalogsFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/ad"/>
 
-        <LinearLayout
-            android:id="@+id/analogsLayout"
+        <include
+            android:id="@+id/ad"
+            layout="@layout/ad"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <fragment
-                android:id="@+id/analogsPanel"
-                android:name="com.shashov.drugs.features.drugs.presentation.views.AnalogsFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-
-
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>
 

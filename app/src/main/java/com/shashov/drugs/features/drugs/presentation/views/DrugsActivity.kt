@@ -1,23 +1,24 @@
 package com.shashov.drugs.features.drugs.presentation.views
 
 
+import android.app.Activity
 import android.arch.lifecycle.LifecycleActivity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.inputmethod.InputMethodManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.shashov.drugs.R
 import com.shashov.drugs.app.DrugsApp
-import android.content.Intent
-import android.support.v4.app.Fragment
-import android.view.View
-import com.shashov.drugs.features.drugs.presentation.*
+import com.shashov.drugs.features.drugs.presentation.AnalogsViewModel
+import com.shashov.drugs.features.drugs.presentation.hide
+import com.shashov.drugs.features.drugs.presentation.show
 import kotlinx.android.synthetic.main.activity_main.*
-import android.app.Activity
-import android.view.inputmethod.InputMethodManager
+import kotlinx.android.synthetic.main.banner.*
 import kotlinx.android.synthetic.main.fragment_search.*
-import android.view.animation.AnimationUtils
-
-
 
 
 class DrugsActivity : LifecycleActivity(), SearchFragment.OpenAnalogsListener {
@@ -30,6 +31,8 @@ class DrugsActivity : LifecycleActivity(), SearchFragment.OpenAnalogsListener {
         setContentView(R.layout.activity_main)
         analogsViewModel = ViewModelProviders.of(this).get(AnalogsViewModel::class.java)
 
+        initAd()
+
         analogsViewModel.getSubstance().observe(this, Observer<String> { text ->
             if (!isTwoPanel()) {
                 if (analogsViewModel.isCleared()) {
@@ -41,8 +44,20 @@ class DrugsActivity : LifecycleActivity(), SearchFragment.OpenAnalogsListener {
         })
     }
 
+    private fun initAd() {
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-4753930175100613~1882454432")
+
+        if (adView != null && adView.visibility == View.VISIBLE) {
+            adView.loadAd(AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                    .addTestDevice("33A2300990D02B93B1E241C13945C4BA") //tablet
+                    .addTestDevice("123") //TODO phone
+                    .build()
+            )
+        }
+    }
+
     override fun openAnalogs(item: String) {
-        //hideSoftKeyboard()
         analogsViewModel.changeScrollToTop(true)
         analogsViewModel.loadAnalogs(item)
     }

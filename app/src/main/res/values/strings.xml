@@ -8,4 +8,6 @@
     <string name="searchSubTitle">Выбирайте выгодные аналоги по названию лекарства или действующего вещества</string>
     <string name="AnalogsTitle">Действующее вещество:</string>
     <string name="no_choice">[Не выбрано]</string>
+
+    <string name="banner_ad_unit_d">ca-app-pub-4753930175100613/8132114111</string>
 </resources>
