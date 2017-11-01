@@ -8,11 +8,12 @@ class Drugs {
     @PrimaryKey
     var _id: Int = 0
     var name: String? = ""
-    var price: Int = -1
+    var price: Int? = -1
     var company: String? = "--"
     var substance: String? = "--"
     var form: String? = "--"
-    var count: String = "--"
+    var count: String? = "--"
+    var code: String? = "--"
 }
 
 class Substance : ISearchItem {

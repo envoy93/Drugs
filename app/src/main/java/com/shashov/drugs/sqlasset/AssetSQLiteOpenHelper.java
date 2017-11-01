@@ -30,7 +30,7 @@ class AssetSQLiteOpenHelper implements SupportSQLiteOpenHelper {
 
             @Override
             public final void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-                callback.onUpgrade(getWrappedDb(sqLiteDatabase), oldVersion, newVersion);
+                //callback.onUpgrade(getWrappedDb(sqLiteDatabase), oldVersion, newVersion);
             }
 
             @Override

@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".features.drugs.presentation.views.DrugsActivity">
+        </activity>
+        <activity
+            android:name=".features.drugs.presentation.views.SplashActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

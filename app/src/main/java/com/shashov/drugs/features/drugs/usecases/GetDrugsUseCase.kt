@@ -7,10 +7,12 @@ import com.shashov.drugs.features.drugs.data.local.Drug
 import com.shashov.drugs.features.drugs.data.local.Drugs
 import com.shashov.drugs.features.drugs.data.local.ISearchItem
 import com.shashov.drugs.features.drugs.data.local.Substance
+import com.shashov.drugs.features.drugs.presentation.SplashViewModel
 import io.reactivex.Flowable
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subscribers.DisposableSubscriber
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class GetDrugsUseCase @Inject
@@ -89,6 +91,20 @@ internal constructor(private val repo: DrugsRepo) : UseCase<GetDrugsUseCase.Inpu
     companion object {
 
         private val TAG = GetDrugsUseCase::class.java.simpleName
+    }
+
+    fun getDrug(input: Input, splashUseCaseSubscriber: SplashViewModel.SplashUseCaseSubscriber) {
+        Flowable.just(input.title)
+                .delay(5, TimeUnit.SECONDS)
+                .map<Drug?> { title ->
+                    repo.getDrug().blockingFirst()
+                }
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(input.observerOnScheduler)
+                .subscribe(splashUseCaseSubscriber)
+
+        Log.d(TAG, "called subscribe on getDrugs flowable")
+        disposables.add(splashUseCaseSubscriber)
     }
 
 }

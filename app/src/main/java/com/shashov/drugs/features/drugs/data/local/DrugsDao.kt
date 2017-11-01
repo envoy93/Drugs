@@ -1,6 +1,7 @@
 package com.shashov.drugs.features.drugs.data.local
 
-import android.arch.persistence.room.*
+import android.arch.persistence.room.Dao
+import android.arch.persistence.room.Query
 import io.reactivex.Flowable
 
 @Dao
@@ -17,4 +18,7 @@ interface DrugsDao {
 
     @Query("SELECT * FROM drugs WHERE substance = :arg0 COLLATE NOCASE ORDER BY name ASC")
     fun getAnalogs(substance: String): Flowable<List<Drugs>>
+
+    @Query("SELECT * FROM drugs LIMIT 1")
+    fun getDrug(): Flowable<Drug>
 }

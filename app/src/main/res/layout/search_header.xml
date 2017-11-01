@@ -7,11 +7,11 @@
     android:orientation="vertical"
     android:padding="@dimen/marginNormal">
 
-    <ImageView
+    <!--<ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marginSmall"
-        android:src="@mipmap/ic_drugs"/>
+        android:src="@mipmap/ic_drugs"/>-->
 
     <TextView
         android:layout_width="wrap_content"

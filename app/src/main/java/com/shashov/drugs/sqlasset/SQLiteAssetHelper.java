@@ -179,11 +179,11 @@ public class SQLiteAssetHelper extends SQLiteOpenHelper {
             int version = db.getVersion();
 
             // do force upgrade
-            if (version != 0 && version < mForcedUpgradeVersion) {
-                db = createOrOpenDatabase(true);
-                db.setVersion(mNewVersion);
-                version = db.getVersion();
-            }
+            //if (version != 0 && version < mForcedUpgradeVersion) {
+            //    db = createOrOpenDatabase(true);
+            //    db.setVersion(mNewVersion);
+            //    version = db.getVersion();
+            //}
 
             if (version != mNewVersion) {
                 db.beginTransaction();
@@ -195,7 +195,18 @@ public class SQLiteAssetHelper extends SQLiteOpenHelper {
                             Log.w(TAG, "Can't downgrade read-only database from version " +
                                     version + " to " + mNewVersion + ": " + db.getPath());
                         }
-                        onUpgrade(db, version, mNewVersion);
+                        //onUpgrade(db, version, mNewVersion);
+                        //delete old file
+                        db.endTransaction();
+                        db.close();
+
+                        boolean isDeleted = mContext.deleteDatabase("drugs2.db");
+                        db = createOrOpenDatabase(false);
+                        db.beginTransaction();
+
+                        if (isDeleted) {
+                            onCreate(db);
+                        }
                     }
                     db.setVersion(mNewVersion);
                     db.setTransactionSuccessful();
