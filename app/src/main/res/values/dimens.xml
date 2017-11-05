@@ -8,9 +8,9 @@
 	<dimen name="marginLarge">9.8dp</dimen>
 	<dimen name="marginNormal">6.5dp</dimen>
 	<dimen name="marginSmall">3.2dp</dimen>
-	<dimen name="textSmall">9.6sp</dimen>
-	<dimen name="textBase">10.3sp</dimen>
-	<dimen name="textLarge">10.9sp</dimen>
-	<dimen name="textBig">12.3sp</dimen>
-	<dimen name="textSuperBig">13sp</dimen>
+	<dimen name="textSmall">13.5sp</dimen>
+	<dimen name="textBase">14.4sp</dimen>
+	<dimen name="textLarge">15.3sp</dimen>
+	<dimen name="textBig">17.1sp</dimen>
+	<dimen name="textSuperBig">18sp</dimen>
 </resources>

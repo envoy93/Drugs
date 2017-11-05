@@ -4,12 +4,12 @@
               android:id="@+id/substanceItem"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_marginBottom="@dimen/marginNormal"
-              android:layout_marginEnd="@dimen/marginBig"
-              android:layout_marginStart="@dimen/marginBig"
-              android:layout_marginTop="@dimen/marginNormal"
               android:background="@color/itemBG"
-              android:orientation="horizontal">
+              android:orientation="horizontal"
+              android:paddingBottom="@dimen/marginNormal"
+              android:paddingEnd="@dimen/marginBig"
+              android:paddingStart="@dimen/marginBig"
+              android:paddingTop="@dimen/marginNormal">
 
     <LinearLayout
         android:layout_width="wrap_content"

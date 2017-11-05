@@ -11,7 +11,7 @@
     </style>
 
     <style name="WhiteEditText">
-        <item name="colorAccent">#fff</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="colorPrimary">#fff</item>
         <item name="colorControlNormal">#fff</item>
         <item name="colorControlActivated">#fff</item>

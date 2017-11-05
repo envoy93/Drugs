@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#e22752</color>
-    <color name="colorPrimaryDark">#9e1a27</color>
-    <color name="colorAccent">#b91828</color>
+    <color name="colorPrimary">#3e485d</color>
+    <color name="colorPrimaryDark">#3e485d</color>
+    <color name="colorAccent">#33b3ea</color>
 
     <color name="filterBgOn">#fff</color>
     <color name="filterBgOff">#b91828</color>
+
     <color name="background">#fff</color>
     <color name="searchText">#fff</color>
     <color name="searchTextHint">#ddd</color>
     <color name="itemBG">#fff</color>
-    <color name="itemTitle">#000</color>
+    <color name="itemTitle">#3e3d3e</color>
     <color name="itemSubTitle">#666</color>
+    <color name="itemSubSubTitle">#a8b2bb</color>
     <color name="searchItemDivider">#eee</color>
     <color name="analogsHeader">#ccc</color>
     <color name="price">#ff0000</color>
-    <color name="analogSubTitle">#9e1a27</color>
-    <color name="analogsBG">#e5e5e5</color>
+    <color name="analogsBG">#eeeeef</color>
+
+    <color name="intro1">#0ba8f3</color>
+    <color name="intro2">#4c6979</color>
 
 
 </resources>

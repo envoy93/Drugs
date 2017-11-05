@@ -1,14 +1,24 @@
 <resources>
     <string name="app_name">Лечимся с умом!</string>
-    <string name="no_results_found">Пусто :(</string>
-    <string name="drug">Лекарство</string>
-    <string name="substance">Вещество</string>
-    <string name="searchTextHint">Искать здесь</string>
-    <string name="searchTitle">Лечимся с умом</string>
-    <string name="searchSubTitle">Выбирайте выгодные аналоги по названию лекарства или действующего вещества</string>
-    <string name="AnalogsTitle">Действующее вещество:</string>
-    <string name="no_choice">[Не выбрано]</string>
-
     <string name="banner_ad_unit_d">ca-app-pub-4753930175100613/8132114111</string>
+
+    <!-- splash -->
     <string name="splashTitle">Лечимся с умом!</string>
+
+    <!-- intro -->
+    <string name="intro1">Лечимся с умом!</string>
+    <string name="intro1d">Подбор зависит от действующего вещества. Вы можете искать аналоги по названию лекарства или вещества</string>
+    <string name="intro2">Исключительно для ознакомления</string>
+    <string name="intro2d">Перед приемом лекарственных препаратов обязательно проконсультируйтесь с вашим лечащим врачом</string>
+    <!-- search -->
+    <string name="searchTextHint">Искать здесь</string>
+    <string name="searchTitle">Лечимся с умом!</string>
+    <string name="searchSubTitle">Выбирайте выгодные аналоги по названию лекарства или действующего вещества</string>
+    <string name="substance">Вещество</string>
+    <string name="drug">Лекарство</string>
+
+    <!-- analogs -->
+    <string name="analogsTitle">Действующее вещество</string>
+    <string name="no_choice">Не выбрано</string>
+    <string name="notFound">Не найдено</string>
 </resources>

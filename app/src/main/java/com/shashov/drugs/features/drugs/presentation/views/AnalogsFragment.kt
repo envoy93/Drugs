@@ -54,11 +54,6 @@ class AnalogsFragment : LifecycleFragment() {
             } else {
                 list.adapter.notifyDataSetChanged()
             }
-            if (analogsViewModel.getScrollToTop().value!!) {
-                analogsCoordinator?.scrollTo(0, 0)
-                analogsCoordinator?.fullScroll(View.FOCUS_UP)
-            }
-            analogsViewModel.changeScrollToTop(false)
         })
     }
 }

@@ -4,7 +4,6 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true">
 
-
     <fragment
         android:id="@+id/searchPanel"
         android:name="com.shashov.drugs.features.drugs.presentation.views.SearchFragment"

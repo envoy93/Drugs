@@ -12,7 +12,6 @@ import io.reactivex.Flowable
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subscribers.DisposableSubscriber
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class GetDrugsUseCase @Inject
@@ -95,7 +94,7 @@ internal constructor(private val repo: DrugsRepo) : UseCase<GetDrugsUseCase.Inpu
 
     fun getDrug(input: Input, splashUseCaseSubscriber: SplashViewModel.SplashUseCaseSubscriber) {
         Flowable.just(input.title)
-                .delay(5, TimeUnit.SECONDS)
+                //.delay(5, TimeUnit.SECONDS)
                 .map<Drug?> { title ->
                     repo.getDrug().blockingFirst()
                 }

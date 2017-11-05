@@ -58,7 +58,6 @@ class DrugsActivity : LifecycleActivity(), SearchFragment.OpenAnalogsListener {
     }
 
     override fun openAnalogs(item: String) {
-        analogsViewModel.changeScrollToTop(true)
         analogsViewModel.loadAnalogs(item)
     }
 
@@ -81,7 +80,7 @@ class DrugsActivity : LifecycleActivity(), SearchFragment.OpenAnalogsListener {
         hideSoftKeyboard(entryTitle)
         if (analogsLayout?.visibility != View.VISIBLE) {
             analogsLayout?.show()
-            analogsLayout?.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up))
+            //analogsLayout?.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up))
         }
     }
 

@@ -15,6 +15,10 @@
         <activity android:name=".features.drugs.presentation.views.DrugsActivity">
         </activity>
         <activity
+            android:name=".features.drugs.presentation.views.IntroActivity"
+            android:noHistory="true">
+        </activity>
+        <activity
             android:name=".features.drugs.presentation.views.SplashActivity"
             android:noHistory="true">
             <intent-filter>

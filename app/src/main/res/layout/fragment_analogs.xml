@@ -18,40 +18,50 @@
             android:id="@+id/analogsHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="@dimen/marginNormal"
-            android:gravity="center"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:padding="@dimen/marginNormal">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/marginSmall"
-                android:text="@string/AnalogsTitle"
-                android:textColor="@color/itemTitle"
-                android:textSize="@dimen/textBase"/>
+                android:layout_gravity="top"
+                android:layout_marginEnd="@dimen/marginNormal"
+                android:src="@mipmap/ic_substance"/>
 
-            <TextView
-                android:id="@+id/substanceName"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=""
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="@color/analogSubTitle"
-                android:textSize="@dimen/textTitle"
-                android:textStyle="bold"/>
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/substanceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/textBig"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="@string/analogsTitle"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/itemSubTitle"
+                    android:textSize="@dimen/textBase"/>
+
+            </LinearLayout>
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/analogsHeader"
-            android:paddingEnd="@dimen/marginNormal"
-            android:paddingStart="@dimen/marginNormal">
+            android:layout_below="@id/analogsHeader">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/list"

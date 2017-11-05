@@ -4,10 +4,9 @@ import android.arch.lifecycle.LifecycleFragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.os.Parcelable
+import android.os.Looper
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
@@ -18,13 +17,13 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.shashov.drugs.R
 import com.shashov.drugs.features.drugs.data.local.ISearchItem
-import com.shashov.drugs.features.drugs.presentation.*
+import com.shashov.drugs.features.drugs.presentation.SearchType
+import com.shashov.drugs.features.drugs.presentation.SearchViewModel
 import com.shashov.drugs.features.drugs.presentation.adapters.SearchListAdapter
+import com.shashov.drugs.features.drugs.presentation.hide
+import com.shashov.drugs.features.drugs.presentation.show
 import kotlinx.android.synthetic.main.fragment_search.*
 import java.util.*
-import android.os.Looper
-import android.app.Activity
-import android.view.inputmethod.InputMethodManager
 
 
 class SearchFragment : LifecycleFragment() {
@@ -32,7 +31,10 @@ class SearchFragment : LifecycleFragment() {
     private lateinit var searchViewModel: SearchViewModel
     private var listener: OpenAnalogsListener? = null
     private var handler = Handler(Looper.getMainLooper()) /*UI thread*/
-    private var work: Runnable = Runnable { searchViewModel.loadList() }
+    private var work: Runnable = Runnable {
+        searchViewModel.changeScrollToTop(true)
+        searchViewModel.loadList()
+    }
 
     private val onTextChangeListener = object : TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -44,11 +46,11 @@ class SearchFragment : LifecycleFragment() {
 
         override fun afterTextChanged(editable: Editable?) {
             var text = editable.toString().trim()
-            searchViewModel.changeScrollToTop(true)
+
             searchViewModel.changeText(text)
-            if (text.length < 2 && !text.isEmpty()) {
-                return
-            }
+            //if (text.length < 2 && !text.isEmpty()) {
+            //    return
+            //}
 
             // run search
             handler.postDelayed(work, 700)
@@ -67,6 +69,12 @@ class SearchFragment : LifecycleFragment() {
 
         searchViewModel.getDrugs().observe(this, Observer<ArrayList<ISearchItem>> { drugs ->
             Log.d(TAG, "received update for drugs")
+            if (drugs!!.isEmpty()) {
+                empty.show()
+            } else {
+                empty.hide()
+            }
+
             if (list.adapter == null) {
                 list.adapter = SearchListAdapter(drugs!!, { str ->
                     entryTitle?.clearFocus()
@@ -86,37 +94,38 @@ class SearchFragment : LifecycleFragment() {
             if (isloading!!) progressBar.show() else progressBar.hide()
         })
 
-        searchViewModel.getSearchType().observe(this, Observer<SearchType> { searchType ->
-            when (searchType!!) {
-                SearchType.DRUG -> {
-                    filterDrug.on()
-                    filterSubstance.off()
-                }
-                SearchType.SUBSTANCE -> {
-                    filterDrug.off()
-                    filterSubstance.on()
-                }
-            }
-        })
-
         //entryTitle.setText(searchViewModel.getSearchText().value)
         //entryTitle.clearFocus()
 
-        filterDrug.setOnClickListener({ _ ->
-            if (searchViewModel.getSearchType().value != SearchType.DRUG) {
-                searchViewModel.changeType(SearchType.DRUG)
-                handler.removeCallbacks(work)
-                searchViewModel.loadList()
+        navigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.action_drug -> {
+                    if (searchViewModel.getSearchType().value != SearchType.DRUG) {
+                        searchViewModel.changeType(SearchType.DRUG)
+                        handler.removeCallbacks(work)
+                        searchViewModel.changeScrollToTop(true)
+                        searchViewModel.loadList()
+                        true
+                    } else {
+                        false
+                    }
+                }
+                R.id.action_substance -> {
+                    if (searchViewModel.getSearchType().value != SearchType.SUBSTANCE) {
+                        searchViewModel.changeType(SearchType.SUBSTANCE)
+                        handler.removeCallbacks(work)
+                        searchViewModel.changeScrollToTop(true)
+                        searchViewModel.loadList()
+                        true
+                    } else {
+                        false
+                    }
+                }
+                else -> {
+                    false
+                }
             }
-        })
-
-        filterSubstance.setOnClickListener({ _ ->
-            if (searchViewModel.getSearchType().value != SearchType.SUBSTANCE) {
-                searchViewModel.changeType(SearchType.SUBSTANCE)
-                handler.removeCallbacks(work)
-                searchViewModel.loadList()
-            }
-        })
+        }
     }
 
     override fun onResume() {

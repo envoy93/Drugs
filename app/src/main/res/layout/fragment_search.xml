@@ -1,97 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/searchCoordinatorLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/searchCoordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation"
+        android:background="@color/itemBG">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|snap"
+                android:background="#eeeeef">
+
+                <include layout="@layout/search_header"/>
+            </LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/marginNormal"
+                android:layout_marginStart="@dimen/marginNormal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <com.cielyang.android.clearableedittext.ClearableEditText
+                    android:id="@+id/entryTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/searchTextHint"
+                    android:inputType="textNoSuggestions"
+                    android:padding="@dimen/marginNormal"
+                    android:singleLine="true"
+                    android:textColor="@color/searchText"
+                    android:textColorHint="@color/searchTextHint"
+                    android:textSize="@dimen/textTitle"
+                    android:theme="@style/WhiteEditText"
+                    app:clearIconDrawable="@drawable/clear"/>
+
+            </LinearLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:id="@+id/empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/marginBig"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/notFound"
+                    android:src="@mipmap/searching"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginSmall"
+                    android:text="@string/searchTitle"
+                    android:textAlignment="center"
+                    android:textColor="@color/itemTitle"
+                    android:textSize="@dimen/textBig"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/searchSubTitle"
+                    android:textAlignment="center"
+                    android:textColor="@color/itemSubTitle"
+                    android:textSize="@dimen/textCaption"/>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Base.Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/marginNormal"
+                android:visibility="visible"/>
+
+
+        </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg">
+        android:layout_alignParentBottom="true"
+        android:background="@color/itemBG"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/search_menu"/>
+</RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|snap">
-
-            <include layout="@layout/search_header"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/marginNormal"
-            android:gravity="center"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-            <TextView
-                android:id="@+id/filterDrug"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/marginSmall"
-                android:text="@string/drug"
-                android:textSize="@dimen/textTitle"/>
-
-            <TextView
-                android:id="@+id/filterSubstance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/marginBig"
-                android:padding="@dimen/marginSmall"
-                android:text="@string/substance"
-                android:textSize="@dimen/textTitle"/>
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/marginSmall"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_scrollFlags="enterAlways">
-
-            <com.cielyang.android.clearableedittext.ClearableEditText
-                android:id="@+id/entryTitle"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:hint="@string/searchTextHint"
-                android:inputType="textNoSuggestions"
-                android:singleLine="true"
-                android:textColor="@color/searchText"
-                android:textColorHint="@color/searchTextHint"
-                android:textSize="@dimen/textTitle"
-                android:theme="@style/WhiteEditText"
-                app:clearIconDrawable="@drawable/clear"/>
-
-        </RelativeLayout>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical"/>
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Base.Widget.AppCompat.ProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/marginNormal"
-            android:visibility="visible"/>
-
-    </FrameLayout>
-</android.support.design.widget.CoordinatorLayout>
 
