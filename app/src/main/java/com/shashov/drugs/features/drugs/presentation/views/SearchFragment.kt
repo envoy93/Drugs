@@ -76,7 +76,7 @@ class SearchFragment : LifecycleFragment() {
             }
 
             if (list.adapter == null) {
-                list.adapter = SearchListAdapter(drugs!!, { str ->
+                list.adapter = SearchListAdapter(drugs, { str ->
                     entryTitle?.clearFocus()
                     listener?.hideSoftKeyboard(entryTitle)
                     listener?.openAnalogs(str!!)

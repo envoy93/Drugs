@@ -33,7 +33,7 @@ class DrugsActivity : LifecycleActivity(), SearchFragment.OpenAnalogsListener {
 
         initAd()
 
-        analogsViewModel.getSubstance().observe(this, Observer<String> { text ->
+        analogsViewModel.getSubstance().observe(this, Observer<String> { _ ->
             if (!isTwoPanel()) {
                 if (analogsViewModel.isCleared()) {
                     hideAnalogsFragment()

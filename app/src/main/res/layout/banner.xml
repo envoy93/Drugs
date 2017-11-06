@@ -8,7 +8,7 @@
     android:layout_alignParentBottom="true"
     android:layout_centerHorizontal="true"
     android:layout_gravity="center"
-    android:visibility="invisible"
+    android:visibility="visible"
     ads:adSize="BANNER"
     ads:adUnitId="@string/banner_ad_unit_d">
 </com.google.android.gms.ads.AdView>

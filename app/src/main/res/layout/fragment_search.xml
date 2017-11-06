@@ -42,11 +42,11 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/searchTextHint"
                     android:inputType="textNoSuggestions"
-                    android:padding="@dimen/marginNormal"
+                    android:minHeight="24dp"
                     android:singleLine="true"
                     android:textColor="@color/searchText"
                     android:textColorHint="@color/searchTextHint"
-                    android:textSize="@dimen/textTitle"
+                    android:textSize="@dimen/textBig"
                     android:theme="@style/WhiteEditText"
                     app:clearIconDrawable="@drawable/clear"/>
 
